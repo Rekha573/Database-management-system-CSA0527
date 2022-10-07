@@ -1,0 +1,63 @@
+
+mysql>  \c
+mysql> create database car;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| book               |
+| car                |
+| dbtest2            |
+| employee           |
+| faculty            |
+| hospital           |
+| mysql              |
+| performance_schema |
+| product            |
+| sse                |
+| test               |
++--------------------+
+12 rows in set (0.00 sec)
+
+mysql> use car;
+Database changed
+mysql> create table car(carno int,carname varchar(15),dor date,returndate date);
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> desc car;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| carno      | int(11)     | YES  |     | NULL    |       |
+| carname    | varchar(15) | YES  |     | NULL    |       |
+| dor        | date        | YES  |     | NULL    |       |
+| returndate | date        | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> insert into car values (1,'benz','2014-05-23','2016-12-03'),(2,'toyota','2012-02-24','2013-05-06'),(3,'tata','2015-09-19','2017-10-14'),(4,'nano','2016-09-08','2018-02-22');
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from car;
++-------+---------+------------+------------+
+| carno | carname | dor        | returndate |
++-------+---------+------------+------------+
+|     1 | benz    | 2014-05-23 | 2016-12-03 |
+|     2 | toyota  | 2012-02-24 | 2013-05-06 |
+|     3 | tata    | 2015-09-19 | 2017-10-14 |
+|     4 | nano    | 2016-09-08 | 2018-02-22 |
++-------+---------+------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select carname,dor,returndate from car where carno<3;
++---------+------------+------------+
+| carname | dor        | returndate |
++---------+------------+------------+
+| benz    | 2014-05-23 | 2016-12-03 |
+| toyota  | 2012-02-24 | 2013-05-06 |
++---------+------------+------------+
+2 rows in set (0.00 sec)
